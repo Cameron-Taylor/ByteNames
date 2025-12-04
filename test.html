@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bytenames AI - Test</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e2e8f0;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            background: #2d3748;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            margin: 0 auto;
+            border: 1px solid #4a5568;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #e2e8f0;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #4a5568;
+            border-radius: 8px;
+            background: #1a202c;
+            color: #e2e8f0;
+        }
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            width: 100%;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bytenames AI - Test Page</h1>
+        <p>This is a test to see if the dark theme is working.</p>
+        
+        <div class="form-group">
+            <label for="player-name">Your Name</label>
+            <input type="text" id="player-name" placeholder="Enter your name">
+        </div>
+        
+        <div class="form-group">
+            <label for="player-team">Your Team</label>
+            <select id="player-team">
+                <option value="red">Red Team</option>
+                <option value="blue">Blue Team</option>
+                <option value="observer">Observer (No Team)</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label for="player-role">Your Role</label>
+            <select id="player-role">
+                <option value="operative">Field Operative (Guessing)</option>
+                <option value="observer">Observer (Watch Only)</option>
+            </select>
+        </div>
+        
+        <button class="btn">Join Game</button>
+    </div>
+</body>
+</html>

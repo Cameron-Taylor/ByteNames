@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bytenames AI - Digital Spymaster</title>
+    <link rel="stylesheet" href="styles.css?v=8">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Welcome Screen -->
+        <div id="welcome-screen" class="screen active">
+            <div class="welcome-container">
+                <h1 class="game-title">Bytenames AI</h1>
+                <p class="game-subtitle">Digital Spymaster Edition</p>
+                <div class="welcome-content">
+                    <div class="game-description">
+                        <p>Welcome to Bytenames with an AI Spymaster! The AI will provide clues to help your team identify your agents while avoiding the enemy and the assassin.</p>
+                    </div>
+                    <div class="join-form">
+                        <div class="form-group">
+                            <label for="player-name">Your Name</label>
+                            <input type="text" id="player-name" placeholder="Enter your name" maxlength="20">
+                        </div>
+                        <div class="form-group">
+                            <label for="room-id">Room ID</label>
+                            <input type="text" id="room-id" placeholder="Enter room ID" maxlength="10">
+                        </div>
+                        <div class="form-group">
+                            <label for="player-team">Your Team</label>
+                            <select id="player-team">
+                                <option value="red">Red Team</option>
+                                <option value="blue">Blue Team</option>
+                                <option value="observer">Observer (No Team)</option>
+                            </select>
+                        </div>
+                        <button id="join-game" class="btn btn-primary">Join Game</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <div class="game-info">
+                    <h2>Room: <span id="current-room"></span></h2>
+                    <div class="player-info">
+                        <span id="player-name-display"></span> - <span id="player-role-display"></span>
+                    </div>
+                </div>
+                <div class="game-controls">
+                    <button id="start-game" class="btn btn-secondary" disabled>Start Game</button>
+                    <button id="leave-game" class="btn btn-outline">Leave Game</button>
+                </div>
+                
+                <!-- Clue History Panel -->
+                <div id="clue-history-panel" class="clue-history-panel" style="display: none;">
+                    <h3>Clue History</h3>
+                    <div id="clue-history-content">
+                        <!-- Clue history will be populated here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-content">
+                <!-- Game Status -->
+                <div class="game-status">
+                    <div class="team-scores">
+                        <div class="team red-team">
+                            <div class="team-header">
+                                <span class="team-name">Red Team</span>
+                                <span class="team-score" id="red-score">0</span>
+                            </div>
+                            <div class="team-remaining" id="red-remaining">9 remaining</div>
+                        </div>
+                        <div class="current-turn">
+                            <div class="turn-indicator" id="current-team">Red's Turn</div>
+                            <div class="clue-display" id="clue-display">
+                                <span class="clue-text">Waiting for game to start...</span>
+                            </div>
+                            <div class="end-turn-container">
+                                <button id="end-turn" class="btn btn-warning btn-end-turn" disabled>End Turn</button>
+                            </div>
+                        </div>
+                        <div class="team blue-team">
+                            <div class="team-header">
+                                <span class="team-name">Blue Team</span>
+                                <span class="team-score" id="blue-score">0</span>
+                            </div>
+                            <div class="team-remaining" id="blue-remaining">8 remaining</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Board -->
+                <div class="game-board">
+                    <div class="board-grid" id="word-grid">
+                        <!-- Words will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Card Reveal Display (shown at game end) -->
+                <div id="card-reveal-display" class="card-reveal-display" style="display: none;">
+                    <h3>Final Board - All Cards Revealed</h3>
+                    <div class="reveal-grid" id="reveal-grid">
+                        <!-- Revealed cards will be populated here -->
+                    </div>
+                </div>
+
+                <!-- Game Messages -->
+                <div class="game-messages" id="game-messages">
+                    <div class="message system">Welcome to Bytenames AI! The AI spymaster will provide clues to help your team identify your agents.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>Connecting to game...</p>
+    </div>
+
+    <!-- Game Over Modal -->
+    <div id="game-over-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="game-over-title">Game Over!</h2>
+            <p id="game-over-message"></p>
+            <div class="modal-actions">
+                <button id="play-again" class="btn btn-primary">Play Again</button>
+                <button id="new-room" class="btn btn-secondary">New Room</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="game.js?v=9"></script>
+</body>
+</html>
